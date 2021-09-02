@@ -402,6 +402,18 @@ A compile-time error occurs if a constructor tear-off denotes a generative const
 
 *A generative constructor declared in an abstract class may well be executed as part of the execution of a constructor tear-off, via a superinitializer. It cannot, however, be torn off on its own, because the execution of a constructor tear-off is an instance creation, and abstract classes do not have instances. There is no similar constraint on a factory constructor.*
 
+### Compile-time errors
+
+This section lists the compile-time errors associated with this feature. The _italic_ entries are commentary, which indicates that they are stated elsewhere already.
+
+It is compile-time error if an expression of the form `e.new <parameterPart>?` occurs, and `e` is not a type literal.
+
+_It is a compile-time error if an expression of the form `e <typeArguments>` occurs, and the static type of `e` is `Function` or `dynamic`._
+
+_It is a compile-time error occurs if a constructor tear-off denotes a generative constructor declared in an abstract class._
+
+_The basename of a constructor declared with `C.new` is `C`. It is a compile-time error if a class declares more than one constructor with the same basename._
+
 ### Grammar changes
 
 The grammar changes necessary for these changes are provided separately (as [changes to the spec grammar](https://dart-review.googlesource.com/c/sdk/+/197161)).
